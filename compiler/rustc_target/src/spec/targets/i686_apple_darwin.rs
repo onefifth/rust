@@ -1,10 +1,12 @@
-use crate::spec::base::apple::{macos_llvm_target, opts, Arch};
-use crate::spec::{Cc, FramePointer, LinkerFlavor, Lld, Target, TargetOptions};
+use crate::spec::base::apple::{macos_llvm_target, opts, pre_link_args, Arch};
+use crate::spec::{Cc, FramePointer, LinkerFlavor, Lld, MaybeLazy, Target, TargetOptions};
 
 pub fn target() -> Target {
     // ld64 only understands i386 and not i686
-    let arch = Arch::I386;
-    let mut base = opts("macos", arch);
+    const ARCH: Arch = Arch::I386;
+    const OS: &'static str = "macos";
+
+    let mut base = opts(OS, ARCH, MaybeLazy::lazy(|| pre_link_args(OS, ARCH)));
     base.max_atomic_width = Some(64);
     base.add_pre_link_args(LinkerFlavor::Darwin(Cc::Yes, Lld::No), &["-m32"]);
     base.frame_pointer = FramePointer::Always;
@@ -26,7 +28,7 @@ pub fn target() -> Target {
         data_layout: "e-m:o-p:32:32-p270:32:32-p271:32:32-p272:64:64-\
             i128:128-f64:32:64-f80:128-n8:16:32-S128"
             .into(),
-        arch: arch.target_arch(),
+        arch: ARCH.target_arch(),
         options: TargetOptions { mcount: "\u{1}mcount".into(), ..base },
     }
 }
