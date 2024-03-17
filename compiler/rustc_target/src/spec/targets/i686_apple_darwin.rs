@@ -8,7 +8,9 @@ pub fn target() -> Target {
 
     let mut base = opts(OS, ARCH, MaybeLazy::lazy(|| pre_link_args(OS, ARCH)));
     base.max_atomic_width = Some(64);
-    base.add_pre_link_args(LinkerFlavor::Darwin(Cc::Yes, Lld::No), &["-m32"]);
+    base.pre_link_args = MaybeLazy::lazy(|| {
+        TargetOptions::link_args(LinkerFlavor::Darwin(Cc::Yes, Lld::No), &["-m32"])
+    });
     base.frame_pointer = FramePointer::Always;
 
     Target {
