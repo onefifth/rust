@@ -1882,11 +1882,11 @@ pub struct TargetOptions {
     linker_is_gnu_json: bool,
 
     /// Objects to link before and after all other object code.
-    pub pre_link_objects: CrtObjects,
-    pub post_link_objects: CrtObjects,
+    pub pre_link_objects: MaybeLazy<CrtObjects>,
+    pub post_link_objects: MaybeLazy<CrtObjects>,
     /// Same as `(pre|post)_link_objects`, but when self-contained linking mode is enabled.
-    pub pre_link_objects_self_contained: CrtObjects,
-    pub post_link_objects_self_contained: CrtObjects,
+    pub pre_link_objects_self_contained: MaybeLazy<CrtObjects>,
+    pub post_link_objects_self_contained: MaybeLazy<CrtObjects>,
     /// Behavior for the self-contained linking mode: inferred for some targets, or explicitly
     /// enabled (in bulk, or with individual components).
     pub link_self_contained: LinkSelfContainedDefault,
@@ -2366,10 +2366,10 @@ impl Default for TargetOptions {
             static_position_independent_executables: false,
             plt_by_default: true,
             relro_level: RelroLevel::None,
-            pre_link_objects: Default::default(),
-            post_link_objects: Default::default(),
-            pre_link_objects_self_contained: Default::default(),
-            post_link_objects_self_contained: Default::default(),
+            pre_link_objects: MaybeLazy::lazy(Default::default),
+            post_link_objects: MaybeLazy::lazy(Default::default),
+            pre_link_objects_self_contained: MaybeLazy::lazy(Default::default),
+            post_link_objects_self_contained: MaybeLazy::lazy(Default::default),
             link_self_contained: LinkSelfContainedDefault::False,
             pre_link_args: MaybeLazy::lazy(LinkArgs::new),
             pre_link_args_json: LinkArgsCli::new(),
@@ -2949,7 +2949,7 @@ impl Target {
 
                         args.insert(kind, v);
                     }
-                    base.$key_name = args;
+                    base.$key_name = MaybeLazy::owned(args);
                 }
             } );
             ($key_name:ident = $json_name:expr, link_args) => ( {
