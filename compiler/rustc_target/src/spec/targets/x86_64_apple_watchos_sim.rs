@@ -6,7 +6,7 @@ pub fn target() -> Target {
     const OS: &'static str = "watchos";
 
     Target {
-        llvm_target: watchos_sim_llvm_target(ARCH).into(),
+        llvm_target: MaybeLazy::lazy(|| watchos_sim_llvm_target(ARCH)),
         metadata: crate::spec::TargetMetadata {
             description: None,
             tier: None,

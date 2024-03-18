@@ -6,7 +6,7 @@ pub fn target() -> Target {
     const OS: &'static str = "tvos";
 
     Target {
-        llvm_target: tvos_llvm_target(ARCH).into(),
+        llvm_target: MaybeLazy::lazy(|| tvos_llvm_target(ARCH)),
         metadata: crate::spec::TargetMetadata {
             description: None,
             tier: None,
