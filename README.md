@@ -16,7 +16,7 @@ standard library, and documentation.
 
 - **Reliability:** Our rich type system and ownership model ensure memory and thread safety, reducing bugs at compile-time.
 
-- **Productivity:** Comprehensive documentation, user-friendly compiler, and advanced tooling including package manager, build tool, auto-formatter, and editor support.
+- **Productivity:** Comprehensive documentation, user-focused compiler, and advanced tooling including package manager and build tool ([Cargo](https://github.com/rust-lang/cargo)), auto-formatter ([rustfmt](https://github.com/rust-lang/rustfmt)), linter ([Clippy](https://github.com/rust-lang/rust-clippy)) and editor support ([rust-analyzer](https://github.com/rust-lang/rust-analyzer)).
 
 ## Quick Start
 
