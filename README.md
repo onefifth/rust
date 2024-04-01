@@ -1,14 +1,19 @@
 <div align="center">
-  <img alt="The Rust Programming Language: A language empowering everyone to build reliable and efficient software" src="https://www.rust-lang.org/static/images/rust-social-wide.jpg" width="512" height="256">
+  <img alt="The Rust Programming Language: A language empowering everyone to build reliable and efficient software"
+       src="https://www.rust-lang.org/static/images/rust-social-wide.jpg"
+       width="512" height="256">
 
-[Website](https://www.rust-lang.org/) | [Getting started](https://www.rust-lang.org/learn/get-started) | [Learn](https://www.rust-lang.org/learn) | [Documentation](https://www.rust-lang.org/learn#learn-use) | [Contributing](CONTRIBUTING.md)
-
+[Website][Rust] | [Getting started] | [Learn] | [Documentation] | [Contributing]
 </div>
 
 This is the main source code repository for [Rust]. It contains the compiler,
 standard library, and documentation.
 
 [Rust]: https://www.rust-lang.org/
+[Getting Started]: https://www.rust-lang.org/learn/get-started
+[Learn]: https://www.rust-lang.org/learn
+[Documentation]: https://www.rust-lang.org/learn#learn-use
+[Contributing]: CONTRIBUTING.md
 
 ## Why Rust?
 
@@ -16,7 +21,12 @@ standard library, and documentation.
 
 - **Reliability:** Our rich type system and ownership model ensure memory and thread safety, reducing bugs at compile-time.
 
-- **Productivity:** Comprehensive documentation, user-focused compiler, and advanced tooling including package manager and build tool ([Cargo](https://github.com/rust-lang/cargo)), auto-formatter ([rustfmt](https://github.com/rust-lang/rustfmt)), linter ([Clippy](https://github.com/rust-lang/rust-clippy)) and editor support ([rust-analyzer](https://github.com/rust-lang/rust-analyzer)).
+- **Productivity:** Comprehensive documentation, a compiler committed to providing great diagnostics, and advanced tooling including package manager and build tool ([Cargo]), auto-formatter ([rustfmt]), linter ([Clippy]) and editor support ([rust-analyzer]).
+
+[Cargo]: https://github.com/rust-lang/cargo
+[rustfmt]: https://github.com/rust-lang/rustfmt
+[Clippy]: https://github.com/rust-lang/rust-clippy
+[rust-analyzer]: https://github.com/rust-lang/rust-analyzer
 
 ## Quick Start
 
