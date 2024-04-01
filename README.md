@@ -1,7 +1,11 @@
 <div align="center">
-  <img alt="The Rust Programming Language: A language empowering everyone to build reliable and efficient software"
-       src="https://www.rust-lang.org/static/images/rust-social-wide.jpg"
-       width="50%">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Urgau/rust/assets/3616612/526538d1-450c-4709-b597-27b7dd83c794">
+    <source media="(prefers-color-scheme: light)" srcset="https://www.rust-lang.org/static/images/rust-social-wide.jpg">
+    <img alt="The Rust Programming Language: A language empowering everyone to build reliable and efficient software"
+         src="https://www.rust-lang.org/static/images/rust-social-wide.jpg"
+         width="50%">
+  </picture>
 
 [Website][Rust] | [Getting started] | [Learn] | [Documentation] | [Contributing]
 </div>
