@@ -1,7 +1,7 @@
 <div align="center">
   <img alt="The Rust Programming Language: A language empowering everyone to build reliable and efficient software"
        src="https://www.rust-lang.org/static/images/rust-social-wide.jpg"
-       width="512" height="256">
+       width="50%">
 
 [Website][Rust] | [Getting started] | [Learn] | [Documentation] | [Contributing]
 </div>
